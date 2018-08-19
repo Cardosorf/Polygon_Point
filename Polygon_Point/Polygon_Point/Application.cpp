@@ -126,18 +126,18 @@ void mouse(int button, int state, int x, int y) {
 				polygonLines.push_back(OrderedPair(dx, dy));
 			}
 
-			/*To each polygon edge vetors, it will be checked if the line vector that connects the last drawn point to the point at the
-			right end of the window intercepts it. If it intercept an odd number of times, then the point is outside the polygon. Otherwise, it is inside.
+			/*For each polygon edge vectors, it will be checked if the line vector that connects the last drawn point to the point at the
+			right end of the window intercepts it. If it intercepts an odd number of times, then the point is outside the polygon. Otherwise, it is inside.
 			Polygon edge vetors are represented by the variables CDx and CDy (wich is the vector CD).
 			The line vector that connects the last drawn point to the point at the right end of the window is represented by the variables ABx and ABy (wich is the vector AB).
 			They intercept if the points C and D are on the opposite side to the vector AB and if the points A and B are on the opposite side to the vector CD.
-			To check it they intercept, it's necessery to check if the vectors AC and AD have opposite orientation with the vector AB.
-			It's also need to verify if the vectors CA and CB have opposite orientation with the vector CD.
-			It can be done by the cross product of the vectors AB and AC and by the cross product of the vectors AB and AD.
+			In order to verify if they intercept, it's necessery to check if the vectors AC and AD have opposite orientation with the vector AB.
+			It's also needed to verify if the vectors CA and CB have opposite orientation with the vector CD.
+			This can be done by the cross product of the vectors AB and AC and by the cross product of the vectors AB and AD.
 			If these cross products have opossite signs, then they have opposite orientation.
 			The same thing need to be done with the vectors CD, CA, CD and CB. Therefore, the cross product of the vectors CD and CA and the cross product of the vectors CD and CB.
 			If these cross products have opossite signs, then they have opposite orientation.
-			If both have opposite orientation, then they intercept.
+			If both have opposite orientation, then the vector AB and CD intercept each other.
 
 			The formula is  (AB x AC)*(AB x AD) < O AND (CD x CA)*(CD x CB) < O.
 			*/
